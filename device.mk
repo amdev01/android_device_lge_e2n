@@ -143,7 +143,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
-
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
@@ -210,8 +209,7 @@ PRODUCT_PACKAGES += \
 
 # Offmode Charging
 PRODUCT_PACKAGES += \
-    charger_res_e2n \
-    charger_e2n
+    charger_res_images
 
 # Thermal
 PRODUCT_COPY_FILES += \
