@@ -15,10 +15,10 @@ else
 endif
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
+    $(LOCAL_KERNEL):kernel \
+    $(LOCAL_PATH)/dt.img:dt.img \
+    $(LOCAL_PATH)/fstab.e2n:root/fstab.e2n
 
 $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_e2n
-PRODUCT_DEVICE := e2n

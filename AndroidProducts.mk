@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/device_e2n.mk
+    $(LOCAL_DIR)/omni_e2n.mk
