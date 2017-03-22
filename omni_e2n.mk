@@ -1,12 +1,9 @@
-# Inherit some common OMNI stuff.
-#$(call inherit-product, vendor/omni/config/common_full_phone.mk)
+$(call inherit-product, device/lge/e2n/full_e2n.mk)
 
-# Inherit device configuration
-$(call inherit-product, device/lge/e2n/device.mk)
-
-## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := e2n
 PRODUCT_NAME := omni_e2n
-PRODUCT_BRAND := lge
-PRODUCT_MODEL := e2n
-PRODUCT_MANUFACTURER := LGE
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_DEVICE="e2n" \
+    PRODUCT_NAME="e2n_global_com" \
+    BUILD_FINGERPRINT="lge/e2n_global_com/e2n:4.4.4/KTU84P.A1417598230/1417598230:user/release-keys" \
+    PRIVATE_BUILD_DESC="e2n_global_com-user 4.4.4 KTU84P.A1417598230 1417598230 release-keys"
