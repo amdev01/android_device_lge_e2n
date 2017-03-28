@@ -1,0 +1,24 @@
+on init
+    mkdir /cust 0771 system system
+    wait /dev/block/bootdevice/by-name/cust
+    exec /sbin/setup_fs_static /dev/block/bootdevice/by-name/cust no_reboot
+
+on fs
+    wait /dev/block/bootdevice/by-name/cust
+    exec /system/bin/e2fsck -p /dev/block/bootdevice/by-name/cust
+    mount ext4 /dev/block/bootdevice/by-name/cust /cust ro nodev barrier=1 noauto_da_alloc
+
+on post-fs-data
+    #LGE_DATA_PRELOAD
+    #mkdir /data/preload 0771 system system
+    #LGE_DATA_PRELOAD_END
+    chown system system /cust
+    chmod 0771 /cust
+
+#Customize booting resources
+service runtime_boot_res /system/vendor/bin/runtime_boot_res.sh
+    disabled
+    oneshot
+
+on property:ro.build.sbp=1
+    start runtime_boot_res
