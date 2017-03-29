@@ -1,6 +1,5 @@
 import init.qcom.rc
 import init.lge.usb.rc
-import init.lge.log.rc
 import init.lge.sensors.rc
 import init.lge.svelte.rc
 
@@ -35,7 +34,6 @@ on post-fs
 
 # enable chargerlogo
 on chargerlogo
-   start log-kernel
    stop bootlogo
 
    wait /dev/block/bootdevice/by-name/system
@@ -238,17 +236,6 @@ service rctd /system/bin/rctd
    user root
    group root
 
-# enable & disable crash handler, rtb & trace event through property
-service service-crash /system/bin/sh /init.betae.crash.sh
-	class main
-	disabled
-	oneshot
-
-on property:persist.service.crash.enable=1
-	restart service-crash
-
-on property:persist.service.crash.enable=0
-	restart service-crash
 # LGE_CHANGE_S, 20140107, jin.park@lge.com, LGODM application
 service lg_dm_router1 /system/bin/lg_dm_router 1
     class late_start
