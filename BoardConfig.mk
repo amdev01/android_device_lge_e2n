@@ -28,7 +28,11 @@ KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-ea
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
 TARGET_KERNEL_SOURCE := kernel/lge/e2
 
-# fix this up by examining /proc/mtd on a running device
+# Offmode Charging
+BOARD_CHARGING_CMDLINE_NAME := "androidboot.mode"
+BOARD_CHARGING_CMDLINE_VALUE := "chargerlogo"
+
+# Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 26424115
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 26424115
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1937768448

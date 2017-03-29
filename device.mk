@@ -32,3 +32,8 @@ PRODUCT_PACKAGES += \
     set_emmc_size.sh \
     ueventd.e2n.rc \
     ueventd.rc
+
+# Offmode Charging
+PRODUCT_PACKAGES += \
+    charger_res_e2n \
+    charger_e2n
