@@ -46,15 +46,6 @@ BOARD_NO_SECURE_DISCARD := true
 BOARD_HAS_NO_REAL_SDCARD := true
 BOARD_RECOVERY_SWIPE := true
 BOARD_SUPPRESS_EMMC_WIPE := true
-TARGET_RECOVERY_FSTAB := device/lge/e2n/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/lge/e2n/rootdir/etc/fstab.e2n
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
-
-# TWRP-Specific
-TW_THEME := portrait_mdpi
-RECOVERY_SDCARD_ON_DATA := true
-TW_NO_REBOOT_BOOTLOADER := true
-TW_INCLUDE_CRYPTO := true
-TW_NO_USB_STORAGE := true
-TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
-RECOVERY_GRAPHICS_USE_LINELENGTH := true

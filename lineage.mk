@@ -1,6 +1,9 @@
 $(call inherit-product, device/lge/e2n/full_e2n.mk)
 
-PRODUCT_NAME := omni_e2n
+# Inherit some common Lineage stuff.
+$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+
+PRODUCT_NAME := lineage_e2n
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_DEVICE="e2n" \
