@@ -48,7 +48,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
 # System properties
-#-include $(LOCAL_PATH)/system_prop.mk
+-include $(LOCAL_PATH)/system_prop.mk
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
@@ -85,9 +85,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 
-# Bluetooth
+# Camera
 PRODUCT_PACKAGES += \
-    bdAddrLoader
+    camera.msm8916
 
 # Display
 PRODUCT_PACKAGES += \
@@ -201,7 +201,9 @@ PRODUCT_PACKAGES += \
     init.qcom.syspart_fixup.sh \
     init.target.rc \
     set_emmc_size.sh \
-    ueventd.e2n.rc
+    ueventd.e2n.rc \
+    init.betae.wifi.sh \
+    init.qcom.bt.sh
 
 # Offmode Charging
 PRODUCT_PACKAGES += \

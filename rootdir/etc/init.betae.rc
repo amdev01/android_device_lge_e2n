@@ -29,8 +29,6 @@ on init
 on post-fs
     # matia.kim@lge.com 2013.04.10 execute sreadahead daemon to reduce boot-time
     start sreadahead
-    # ramoops backup function start service
-    start ramoops_backup
 
 # enable chargerlogo
 on chargerlogo
@@ -144,22 +142,16 @@ service sreadahead-check /sbin/sreadahead_check
     group root
     oneshot
 
-# ramoops backup function service
-service ramoops_backup /system/bin/sh /system/etc/ramoops_backup.sh
-    class main
-    disabled
-    oneshot
-
 # Factory, ATD
-service atd /system/bin/atd /dev/ttyGS0 /dev/hsic0
-    socket atd stream 0660 system inet
-    class main
+ service atd /system/bin/atd /dev/ttyGS0 /dev/hsic0
+     socket atd stream 0660 system inet
+     class main
 
-# Factory, MTSD lg-msp@lge.com
-service mtsd /system/bin/mtsd
-        class late_start
-        oneshot
-        socket mtsd.port stream 660 system system
+ # Factory, MTSD lg-msp@lge.com
+ service mtsd /system/bin/mtsd
+         class late_start
+         oneshot
+         socket mtsd.port stream 660 system system
 
 on property:rild.modem_restart=silence
     write /sys/module/lge_handle_panic/parameters/gen_modem_panic 2

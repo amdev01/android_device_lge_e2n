@@ -17,26 +17,25 @@
 # inherit from the proprietary version
 -include vendor/lge/e2n/BoardConfigVendor.mk
 
+BOARD_VENDOR := lge
+
 LOCAL_PATH := device/lge/e2n
 
 TARGET_OTA_ASSERT_DEVICE := f60,e2,e2n,LG-D390n,e2n_global_com
 
+# Platform
+TARGET_BOARD_PLATFORM := msm8916
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno306
+
 # CPU
 TARGET_ARCH := arm
 TARGET_BOARD_SUFFIX := _32
-TARGET_BOARD_PLATFORM := msm8916
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a53
 TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
-
-# Bluetooth
-BOARD_HAVE_BLUETOOTH_QCOM := true
-BLUETOOTH_HCI_USE_MCT := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/e2n/bluetooth
-BOARD_HAVE_BLUETOOTH := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8916
@@ -62,6 +61,17 @@ AUDIO_FEATURE_ENABLED_NEW_SAMPLE_RATE := true
 AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := false
 USE_CUSTOM_AUDIO_POLICY := 1
 
+# Bluetooth
+BOARD_HAVE_BLUETOOTH_QCOM := true
+BLUETOOTH_HCI_USE_MCT := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/e2n/bluetooth
+BOARD_HAVE_BLUETOOTH := true
+
+# Camera
+USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+BOARD_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
+
 # Display
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_USES_C2D_COMPOSITION := true
@@ -81,6 +91,8 @@ EXTENDED_FONT_FOOTPRINT := true
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
+# Init
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # Offmode Charging
 BOARD_CHARGING_CMDLINE_NAME := "androidboot.mode"
@@ -121,6 +133,9 @@ TARGET_USE_SDCLANG := true
 # SELinux
 #include device/qcom/sepolicy/sepolicy.mk
 #BOARD_SEPOLICY_DIRS += device/lge/e2n/sepolicy
+
+# Time services
+BOARD_USES_QC_TIME_SERVICES := true
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true

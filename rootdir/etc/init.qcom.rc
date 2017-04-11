@@ -866,6 +866,3 @@ service vm_bms /system/bin/vm_bms
 #LGE changes byungyong.hwang SSR setting
 on property:persist.sys.ssr.restart_level=*
 	exec /system/bin/sh /init.qcom.ssr.sh ${persist.sys.ssr.restart_level}
-
-
-
