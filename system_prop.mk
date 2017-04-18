@@ -66,7 +66,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Qualcomm
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=0 \
-    ro.vendor.extension_library=/vendor/lib/libqc-opt.so \
+    ro.vendor.extension_library=/vendor/lib/libqc-opt.so
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \

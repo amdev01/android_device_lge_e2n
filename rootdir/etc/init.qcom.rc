@@ -780,7 +780,7 @@ service hcidump /system/bin/sh /system/etc/hcidump.sh
     disabled
     oneshot
 
-service charger /charger
+service charger /sbin/charger_e2n
     class charger
 
 service ssr_diag /system/bin/ssr_diag
@@ -818,7 +818,7 @@ service charger_monitor /system/bin/charger_monitor
     group root
     disabled
 
-service qbcharger /charger -m 1
+service qbcharger /sbin/charger_e2n -m 1
     disabled
     oneshot
 

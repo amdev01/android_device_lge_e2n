@@ -183,15 +183,20 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.e2n \
+    init.betea.crash.sh \
     init.betae.rc \
+    init.betae.wifi.sh \
     init.class_main.sh \
     init.e2n.rc \
     init.e2n_product.rc \
     init.lge.cmm.usb.sh \
+    init.lge.log.rc \
+    init.lge.rc \
     init.lge.sensors.rc \
     init.lge.svelte.rc \
     init.lge.usb.rc \
     init.lge.usb.sh \
+    init.qcom.bt.sh \
     init.mdm.sh \
     init.qcom.class_core.sh \
     init.qcom.early_boot.sh \
@@ -201,9 +206,7 @@ PRODUCT_PACKAGES += \
     init.qcom.syspart_fixup.sh \
     init.target.rc \
     set_emmc_size.sh \
-    ueventd.e2n.rc \
-    init.betae.wifi.sh \
-    init.qcom.bt.sh
+    ueventd.e2n.rc
 
 # Offmode Charging
 PRODUCT_PACKAGES += \
@@ -227,7 +230,7 @@ PRODUCT_COPY_FILES += \
     device/lge/e2n/wcnss/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     device/lge/e2n/wcnss/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
     device/lge/e2n/wcnss/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin \
-		device/lge/e2n/wcnss/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
+    device/lge/e2n/wcnss/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
     device/lge/e2n/wcnss/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-		device/lge/e2n/wcnss/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    device/lge/e2n/wcnss/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     device/lge/e2n/wcnss/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf

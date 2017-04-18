@@ -29,6 +29,8 @@ on init
 on post-fs
     # matia.kim@lge.com 2013.04.10 execute sreadahead daemon to reduce boot-time
     start sreadahead
+    # ramoops backup function start service
+    # start ramoops_backup
 
 # enable chargerlogo
 on chargerlogo
@@ -142,16 +144,22 @@ service sreadahead-check /sbin/sreadahead_check
     group root
     oneshot
 
-# Factory, ATD
- service atd /system/bin/atd /dev/ttyGS0 /dev/hsic0
-     socket atd stream 0660 system inet
-     class main
+ # ramoops backup function service
+ # service ramoops_backup /system/bin/sh /system/etc/ramoops_backup.sh
+ #    class main
+ #    disabled
+ #    oneshot
 
- # Factory, MTSD lg-msp@lge.com
- service mtsd /system/bin/mtsd
-         class late_start
-         oneshot
-         socket mtsd.port stream 660 system system
+# Factory, ATD
+service atd /system/bin/atd /dev/ttyGS0 /dev/hsic0
+    socket atd stream 0660 system inet
+    class main
+
+# Factory, MTSD lg-msp@lge.com
+service mtsd /system/bin/mtsd
+        class late_start
+        oneshot
+        socket mtsd.port stream 660 system system
 
 on property:rild.modem_restart=silence
     write /sys/module/lge_handle_panic/parameters/gen_modem_panic 2
@@ -228,6 +236,17 @@ service rctd /system/bin/rctd
    user root
    group root
 
+# enable & disable crash handler, rtb & trace event through property
+service service-crash /system/bin/sh /init.betae.crash.sh
+	class main
+	disabled
+	oneshot
+
+on property:persist.service.crash.enable=1
+	restart service-crash
+
+on property:persist.service.crash.enable=0
+	restart service-crash
 # LGE_CHANGE_S, 20140107, jin.park@lge.com, LGODM application
 service lg_dm_router1 /system/bin/lg_dm_router 1
     class late_start
