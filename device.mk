@@ -68,12 +68,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     device/lge/e2n/configs/mixer_paths.xml:system/etc/mixer_paths.xml
 
+# Audio
 PRODUCT_PACKAGES += \
     audiod \
     audio.a2dp.default \
     audio.primary.msm8916 \
     audio.r_submix.default \
-    audio.usb.default
+    audio.usb.default \
+    audio_policy.msm8916 \
+    tinymix
 
 PRODUCT_PACKAGES += \
     libaudio-resampler \
@@ -87,7 +90,8 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm8916
+    camera.msm8916 \
+    Snap
 
 # Display
 PRODUCT_PACKAGES += \
@@ -143,28 +147,28 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
+# NFC
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
+    NfcNci \
+    nfc_nci.bcm2079x.default \
+    Tag
+
 # OMX
 PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
     libdashplayer \
-    libdivxdrmdecrypt \
-    libextmedia_jni \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
     libOmxVdec \
-    libOmxVdecHevc \
     libOmxVenc \
-    libOmxVidcCommon \
-    libqcmediaplayer \
     libstagefrighthw \
     qcmediaplayer
 
 PRODUCT_BOOT_JARS += \
     qcmediaplayer
-
 # Power
 PRODUCT_PACKAGES += \
     power.msm8916
@@ -175,9 +179,17 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/dsi_config.xml:system/etc/data/dsi_config.xml \
+    $(LOCAL_PATH)/configs/netmgr_config.xml:system/etc/data/netmgr_config.xml \
+    $(LOCAL_PATH)/configs/qmi_config.xml:system/etc/data/qmi_config.xml
+
 # Radio
 PRODUCT_PACKAGES += \
     libxml2
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/set-baseband:system/bin/set-baseband
 
 # Ramdisk
 PRODUCT_PACKAGES += \
